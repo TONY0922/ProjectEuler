@@ -25,5 +25,5 @@ class SumPrimesCalculator
   end
 end
 
-calc = SumPrimesCalculator.new(1000)
+calc = SumPrimesCalculator.new(2000000)
 p calc.sum
