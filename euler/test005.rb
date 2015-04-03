@@ -2,6 +2,7 @@
 #そのような数字の中では最小の値である。
 #では、1 から 20 までの整数全てで割り切れる
 #数字の中で最小の値はいくらになるか。
+# ANSWERD: 2015-04-03
 
 class LowestCommonCalculator
   def initialize(target_range)

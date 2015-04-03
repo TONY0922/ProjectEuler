@@ -5,26 +5,32 @@
 #これらの数の差は 3025 - 385 = 2640 となる。
 #
 #同様にして、最初の100個の自然数について和の二乗と二乗の和の差を求めよ。
+# ANSWERD: 2015-04-03
+#
+class SumSquareDifferenceCalculator
 
+  def initialize(target_val)
+    @target_val = target_val
+    calc
+  end
 
-ary = Array.new()
+  def print_answer
+    p @answer
+  end
 
-100.times do |x|
-ary << x + 1
+  private
+  def calc
+    @answer = calc_sum_square - calc_square_sum
+  end
+
+  def calc_square_sum
+    (1..@target_val).inject {|sum, x| sum += x**2 }
+  end
+
+  def calc_sum_square
+    (1..@target_val).reduce(:+) ** 2
+  end
 end
 
-a = Array.new()
-b = Array.new()
-
-for x in ary
-    a << (x**2)
-    b << x
-end
-
-for x in a
-
-
-puts "和の2乗:" + (b^2).to_s
-puts "2乗数の和:" + a.to_s
-puts "引き算:" + (b^2 - a).to_s
-
+calc = SumSquareDifferenceCalculator.new(100)
+calc.print_answer
