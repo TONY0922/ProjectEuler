@@ -4,19 +4,29 @@
 #数字の中で最小の値はいくらになるか。
 
 class LowestCommonCalculator
-   def initialize(target_range)
-     @target_range = target_range
-     calc
-   end
+  def initialize(target_range)
+    @target_range = target_range
+    @lowestCommon = 1
+    calc
+  end
 
-   def print_answer
-
-   end
+  def print_answer
+    p @lowestCommon
+  end
 
   private
   def calc
     for i in @target_range
-      # TODO
+      next if @lowestCommon % i == 0
+
+      index = 2
+      loop do
+        if (@lowestCommon * index) % i == 0
+          @lowestCommon *= index
+          break
+        end
+        index += 1
+      end
     end
   end
 end
